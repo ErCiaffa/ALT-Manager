@@ -1,0 +1,13 @@
+{
+  "accounts": [
+    {
+      "id": "acc_2",
+      "label": "ZinghiriSlave",
+      "username": "ZinghiriSlave",
+      "auth": "offline",
+      "color": "#00ff88",
+      "avatar": "Z",
+      "loginPassword": "Zingaro96"
+    }
+  ]
+}
