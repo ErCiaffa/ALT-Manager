@@ -1,0 +1,189 @@
+2026-03-16 20:03:15 [info] === ALT Manager v1.0.0 starting ===
+2026-03-16 20:03:15 [info] [Manager] Connecting → localhost:25565  user=AltBot  auth=offline  v=1.21.1
+2026-03-16 20:03:15 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 20:03:15 [info] [AntiAFK] Plugin loaded ✓ — lookAround, swingArm, sneak, jump, rotate360
+2026-03-16 20:03:15 [error] Error: connect ECONNREFUSED 127.0.0.1:25565
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16)
+2026-03-16 20:03:15 [warn] [Bot] Connection ended: socketClosed
+2026-03-16 20:03:15 [info] [Manager] Reconnect disabled — shutting down
+2026-03-16 20:07:15 [info] === ALT Manager v1.0.0 starting ===
+2026-03-16 20:07:15 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 20:07:16 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 20:07:16 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 20:07:16 [info] [Bot] Login successful — entity ID: 135262
+2026-03-16 20:07:16 [debug] [AntiDetect] Sent realistic client settings
+2026-03-16 20:07:16 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-16 20:07:16 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-16 20:07:16 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-16 20:07:17 [info] [Bot] Spawned in world
+2026-03-16 20:07:17 [info] [Bot] Position: {"x":75.53,"y":62,"z":0.5}
+2026-03-16 20:07:17 [debug] [Bot] Health: 20 | Food: 20
+2026-03-16 20:07:44 [info] [Main] SIGINT received — shutting down gracefully
+2026-03-16 20:07:44 [info] [Manager] Bot destroyed
+2026-03-16 20:07:44 [warn] [Bot] Connection ended: Shutdown
+2026-03-16 20:07:44 [info] [Manager] Reconnecting in 5s…
+2026-03-16 20:10:09 [info] === ALT Manager v1.0.0 starting ===
+2026-03-16 20:10:09 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 20:10:10 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 20:10:10 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 20:10:10 [info] [Bot] Login successful — entity ID: 135280
+2026-03-16 20:10:10 [debug] [AntiDetect] Sent realistic client settings
+2026-03-16 20:10:10 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-16 20:10:10 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-16 20:10:10 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-16 20:10:11 [info] [Bot] Spawned in world
+2026-03-16 20:10:11 [info] [Bot] Position: {"x":75.53,"y":62,"z":0.5}
+2026-03-16 20:10:11 [debug] [Bot] Health: 20 | Food: 20
+2026-03-16 20:10:29 [debug] [Chat] 
+ 
+   AIUTO? 
+ 
+ Hai bisogno di aiuto? Usa /help o chiedi allo staff usando /ticket! Puoi anche usare /tickets per vedere i tuoi ticket aperti.
+ 
+
+2026-03-16 20:10:29 [info] [Main] SIGINT received — shutting down gracefully
+2026-03-16 20:10:29 [info] [Manager] Bot destroyed
+2026-03-16 20:10:29 [warn] [Bot] Connection ended: Shutdown
+2026-03-16 20:10:29 [info] [Manager] Reconnecting in 5s…
+2026-03-16 20:47:06 [info] === ALT Manager v1.0.0 starting ===
+2026-03-16 20:47:06 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 20:47:06 [info] [Web] Dashboard attiva → http://localhost:3000
+2026-03-16 20:47:07 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 20:47:07 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 20:47:07 [info] [Bot] Login — entity ID: 136359
+2026-03-16 20:47:07 [debug] [AntiDetect] Sent realistic client settings
+2026-03-16 20:47:07 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-16 20:47:07 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-16 20:47:07 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-16 20:47:08 [info] [Bot] Spawned — pos: {"x":75.53,"y":62,"z":0.5}
+2026-03-16 20:47:08 [debug] [Bot] HP: 20 | Food: 20
+2026-03-16 20:47:14 [info] [Main] SIGINT — shutdown
+2026-03-16 20:47:14 [info] [Manager] Bot distrutto
+2026-03-16 20:47:14 [warn] [Bot] Disconnesso: Shutdown
+2026-03-16 20:47:14 [info] [Manager] Riconnessione tra 5s…
+2026-03-16 20:48:58 [info] === ALT Manager v1.0.0 starting ===
+2026-03-16 20:48:58 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 20:48:58 [info] [Web] Dashboard attiva → http://localhost:3000
+2026-03-16 20:48:58 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 20:48:58 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 20:48:59 [info] [Bot] Login — entity ID: 136536
+2026-03-16 20:48:59 [debug] [AntiDetect] Client settings inviati
+2026-03-16 20:48:59 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-16 20:48:59 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-16 20:48:59 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-16 20:49:00 [info] [Bot] Spawned — pos: {"x":75.53,"y":62,"z":0.5}
+2026-03-16 20:49:00 [debug] [Bot] HP: 20 | Food: 20
+2026-03-16 20:49:02 [info] [Main] SIGINT — shutdown
+2026-03-16 20:49:02 [info] [Manager] Bot distrutto
+2026-03-16 20:49:02 [warn] [Bot] Disconnesso: Shutdown
+2026-03-16 20:49:02 [info] [Manager] Riconnessione tra 5s…
+2026-03-16 20:49:02 [info] [Main] SIGINT — shutdown
+2026-03-16 20:49:02 [info] [Manager] Bot distrutto
+2026-03-16 20:49:03 [info] [Main] SIGINT — shutdown
+2026-03-16 20:49:03 [info] [Manager] Bot distrutto
+2026-03-16 20:49:17 [info] === ALT Manager v1.0.0 starting ===
+2026-03-16 20:49:17 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 20:49:17 [info] [Web] Dashboard attiva → http://localhost:3000
+2026-03-16 20:49:17 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 20:49:17 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 20:49:18 [info] [Bot] Login — entity ID: 136541
+2026-03-16 20:49:18 [debug] [AntiDetect] Client settings inviati
+2026-03-16 20:49:18 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-16 20:49:18 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-16 20:49:18 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-16 20:49:18 [info] [Bot] Spawned — pos: {"x":75.53,"y":62,"z":0.5}
+2026-03-16 20:49:18 [debug] [Bot] HP: 20 | Food: 20
+2026-03-16 20:49:27 [info] [API] Login dashboard da 213.45.109.73
+2026-03-16 20:49:42 [info] [Main] SIGINT — shutdown
+2026-03-16 20:49:42 [info] [Manager] Bot distrutto
+2026-03-16 20:49:42 [warn] [Bot] Disconnesso: Shutdown
+2026-03-16 20:49:42 [info] [Manager] Riconnessione tra 5s…
+2026-03-16 21:49:11 [info] === ALT Manager v1.0.0 starting ===
+2026-03-16 21:49:11 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 21:49:11 [info] [Web] Dashboard attiva → http://localhost:3000
+2026-03-16 21:49:11 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 21:49:11 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 21:49:12 [info] [Bot] Login — entity ID: 137719
+2026-03-16 21:49:12 [debug] [AntiDetect] Client settings inviati
+2026-03-16 21:49:12 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-16 21:49:12 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-16 21:49:12 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-16 21:49:13 [info] [Bot] Spawned — pos: {"x":75.53,"y":62,"z":0.5}
+2026-03-16 21:49:13 [debug] [Bot] HP: 20 | Food: 20
+2026-03-16 21:49:13 [debug] [Chat] 
+ 
+   WIKI 
+ 
+ Consulta la nostra Wiki per scoprire i regolamenti, le funzionalità e i segreti del server!
+ 
+
+2026-03-16 21:51:36 [info] [Manager] Modulo autoCommands → ON (riconnessione)
+2026-03-16 21:51:36 [info] [API] Modulo autoCommands → ON
+2026-03-16 21:51:36 [warn] [Bot] Disconnesso: Module reload
+2026-03-16 21:51:36 [info] [Manager] Riconnessione tra 5s…
+2026-03-16 21:51:37 [info] [Manager] Modulo afk → OFF (riconnessione)
+2026-03-16 21:51:37 [info] [API] Modulo afk → OFF
+2026-03-16 21:51:37 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 21:51:37 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 21:51:38 [info] [Manager] Modulo afk → ON (riconnessione)
+2026-03-16 21:51:38 [info] [API] Modulo afk → ON
+2026-03-16 21:51:38 [warn] [Bot] Disconnesso: Module reload
+2026-03-16 21:51:38 [info] [Manager] Riconnessione tra 5s…
+2026-03-16 21:51:39 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 21:51:39 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 21:51:39 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 21:51:39 [info] [Bot] Login — entity ID: 137723
+2026-03-16 21:51:39 [debug] [AntiDetect] Client settings inviati
+2026-03-16 21:51:39 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-16 21:51:39 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-16 21:51:39 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-16 21:51:39 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 21:51:39 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 21:51:39 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 21:51:39 [warn] [Bot] Kickato: {"extra":[{"bold":true,"extra":[{"color":"gold","text":"Arena"},{"color":"gray","text":"Craft"}],"text":""},{"text":"\n\n"},{"color":"gray","text":"Sei già connesso al server"},{"text":"\n"},{"color":"gray","text":"Se pensi sia un errore riprova ad entrare tra qualche secondo"}],"text":""}
+2026-03-16 21:51:39 [info] [Manager] Riconnessione tra 5s…
+2026-03-16 21:51:39 [warn] [Bot] Disconnesso: socketClosed
+2026-03-16 21:51:39 [info] [Bot] Spawned — pos: {"x":75.53,"y":62.29,"z":0.5}
+2026-03-16 21:51:39 [debug] [Bot] HP: 20 | Food: 20
+2026-03-16 21:51:44 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 21:51:44 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 21:51:44 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 21:51:44 [warn] [Bot] Kickato: {"extra":[{"bold":true,"extra":[{"color":"gold","text":"Arena"},{"color":"gray","text":"Craft"}],"text":""},{"text":"\n\n"},{"color":"gray","text":"Sei già connesso al server"},{"text":"\n"},{"color":"gray","text":"Se pensi sia un errore riprova ad entrare tra qualche secondo"}],"text":""}
+2026-03-16 21:51:44 [info] [Manager] Riconnessione tra 5s…
+2026-03-16 21:51:44 [warn] [Bot] Disconnesso: socketClosed
+2026-03-16 21:51:46 [info] [Main] SIGINT — shutdown
+2026-03-16 21:51:46 [info] [Manager] Bot distrutto
+2026-03-16 21:51:46 [info] [Main] SIGINT — shutdown
+2026-03-16 21:51:46 [info] [Manager] Bot distrutto
+2026-03-16 21:51:46 [info] [Main] SIGINT — shutdown
+2026-03-16 21:51:46 [info] [Manager] Bot distrutto
+2026-03-16 21:52:39 [info] === ALT Manager v1.0.0 starting ===
+2026-03-16 21:52:39 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-16 21:52:39 [info] [Web] Dashboard attiva → http://localhost:3000
+2026-03-16 21:52:40 [info] [AntiDetect] Plugin loaded ✓
+2026-03-16 21:52:40 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-16 21:52:41 [info] [Bot] Login — entity ID: 137724
+2026-03-16 21:52:41 [debug] [AntiDetect] Client settings inviati
+2026-03-16 21:52:41 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-16 21:52:41 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-16 21:52:41 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-16 21:52:41 [info] [Bot] Spawned — pos: {"x":75.53,"y":62,"z":0.5}
+2026-03-16 21:52:41 [debug] [Bot] HP: 20 | Food: 20
+2026-03-16 21:52:43 [debug] [Chat] 
+ 
+   HEY! 
+ 
+ Benvenuto nella Hub! Esplora ogni angolo per scoprire tutti i suoi segreti. Usa /party e /friends per giocare e socializzare con gli altri giocatori!
+ 
+
+2026-03-16 21:52:47 [info] [API] Server aggiunto: mc.arenacraft.it
+2026-03-16 21:52:53 [info] [API] Account aggiunto: ZinghiriSlave
+2026-03-16 21:53:30 [info] [API] Login dashboard da 45.10.157.132
+2026-03-16 21:53:59 [info] [Main] SIGINT — shutdown
+2026-03-16 21:53:59 [info] [Manager] Bot distrutto
+2026-03-16 21:53:59 [info] [Main] SIGINT — shutdown
+2026-03-16 21:53:59 [info] [Manager] Bot distrutto
+2026-03-16 21:53:59 [info] [Main] SIGINT — shutdown
+2026-03-16 21:53:59 [info] [Manager] Bot distrutto
+2026-03-16 21:53:59 [warn] [Bot] Disconnesso: Shutdown
+2026-03-16 21:53:59 [info] [Manager] Riconnessione tra 5s…

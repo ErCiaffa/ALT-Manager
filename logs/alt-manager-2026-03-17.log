@@ -1,0 +1,47 @@
+2026-03-17 03:13:07 [info] === ALT Manager v1.0.0 starting ===
+2026-03-17 03:13:07 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-17 03:13:08 [info] [Web] Dashboard → http://localhost:3000
+2026-03-17 03:13:08 [info] [AntiDetect] Plugin loaded ✓
+2026-03-17 03:13:08 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-17 03:13:08 [info] [Bot] Login — entity ID: 131868
+2026-03-17 03:13:08 [debug] [AntiDetect] Client settings inviati
+2026-03-17 03:13:09 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-17 03:13:09 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-17 03:13:09 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-17 03:13:09 [info] [Bot] Spawned — pos: {"x":75.53,"y":62,"z":0.5}
+2026-03-17 03:13:09 [debug] [Bot] HP: 20 | Food: 20
+2026-03-17 03:13:22 [info] [API] Disconnessione richiesta da dashboard
+2026-03-17 03:13:22 [warn] [Bot] Disconnesso: Dashboard disconnect
+2026-03-17 03:13:22 [info] [Manager] Riconnessione tra 5s…
+2026-03-17 03:13:23 [info] [API] Disconnessione richiesta da dashboard
+2026-03-17 03:13:27 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-17 03:13:27 [info] [AntiDetect] Plugin loaded ✓
+2026-03-17 03:13:27 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-17 03:13:27 [info] [Bot] Login — entity ID: 131882
+2026-03-17 03:13:27 [debug] [AntiDetect] Client settings inviati
+2026-03-17 03:13:27 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-17 03:13:27 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-17 03:13:27 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-17 03:13:27 [info] [API] Connect richiesto: ZinghiriSlave → mc.arenacraft.it
+2026-03-17 03:13:28 [warn] [Bot] Disconnesso: Switching account
+2026-03-17 03:13:28 [info] [Manager] Riconnessione tra 5s…
+2026-03-17 03:13:28 [info] [Bot] Spawned — pos: {"x":75.53,"y":62.29,"z":0.5}
+2026-03-17 03:13:28 [debug] [Bot] HP: 20 | Food: 20
+2026-03-17 03:13:28 [info] [Manager] Connecting → mc.arenacraft.it:25565  user=ZinghiriSlave  auth=offline  v=1.21.9
+2026-03-17 03:13:28 [info] [AntiDetect] Plugin loaded ✓
+2026-03-17 03:13:28 [info] [AntiAFK] Plugin loaded but disabled via config
+2026-03-17 03:13:28 [info] [Bot] Login — entity ID: 131883
+2026-03-17 03:13:28 [debug] [AntiDetect] Client settings inviati
+2026-03-17 03:13:28 [debug] [Chat]    Benvenuto su ArenaCraft, ZinghiriSlave!
+2026-03-17 03:13:28 [debug] [Chat]    Digita /login <password> per effettuare l'accesso
+2026-03-17 03:13:28 [debug] [Chat]    o entra da premium.ArenaCraft.it se sei Premium
+2026-03-17 03:13:29 [info] [Bot] Spawned — pos: {"x":75.53,"y":62.29,"z":0.5}
+2026-03-17 03:13:29 [debug] [Bot] HP: 20 | Food: 20
+2026-03-17 03:14:13 [debug] [Chat] 
+ 
+   COSMETICI 
+ 
+ Ottieni cosmetici esclusivi aprendo le crates a fine partita!
+ 
+
+2026-03-17 03:16:02 [debug] [Chat] OWNER RaynLegends è scivolato in lobby

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALT Manager</title>
+<style>
+:root {
+  --bg:      #0f1117;
+  --surface: #1a1d27;
+  --border:  #2a2d3e;
+  --accent:  #5865f2;
+  --green:   #2ecc71;
+  --red:     #e74c3c;
+  --yellow:  #f39c12;
+  --blue:    #60a5fa;
+  --text:    #e2e8f0;
+  --muted:   #64748b;
+  --r:       10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; min-height: 100vh; }
+
+/* ── Login ── */
+#login-screen { display:flex; align-items:center; justify-content:center; min-height:100vh; }
+.login-box { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:40px 36px; width:340px; text-align:center; }
+.login-box h1 { font-size:22px; margin-bottom:6px; }
+.login-box p  { color:var(--muted); margin-bottom:28px; font-size:13px; }
+.login-error  { color:var(--red); font-size:13px; min-height:20px; margin-bottom:10px; }
+input { width:100%; padding:10px 14px; border-radius:8px; background:var(--bg); border:1px solid var(--border); color:var(--text); font-size:14px; margin-bottom:12px; }
+input:focus { outline:none; border-color:var(--accent); }
+
+/* ── App ── */
+#app { display:none; flex-direction:column; min-height:100vh; }
+
+header { display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:56px; background:var(--surface); border-bottom:1px solid var(--border); }
+header h1 { font-size:16px; font-weight:600; }
+.hdr-right { display:flex; align-items:center; gap:14px; }
+.dot { width:9px; height:9px; border-radius:50%; background:var(--red); transition:background .3s; }
+.dot.online { background:var(--green); }
+.dot.connecting { background:var(--yellow); }
+#conn-label { font-size:13px; color:var(--muted); }
+
+main { display:grid; grid-template-columns:1fr 340px; gap:20px; padding:20px 24px; flex:1; align-items:start; }
+
+.panel { background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:18px; margin-bottom:16px; }
+.panel:last-child { margin-bottom:0; }
+.panel-title { font-size:11px; font-weight:700; letter-spacing:1px; color:var(--muted); text-transform:uppercase; margin-bottom:14px; }
+
+/* ── Stats ── */
+.stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
+.stat { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:12px; }
+.stat-lbl { font-size:11px; color:var(--muted); margin-bottom:5px; }
+.stat-val { font-size:20px; font-weight:700; }
+.stat-val.g { color:var(--green); } .stat-val.y { color:var(--yellow); } .stat-val.b { color:var(--blue); }
+.bar { height:6px; background:var(--bg); border-radius:3px; overflow:hidden; margin-top:5px; border:1px solid var(--border); }
+.bar-fill { height:100%; border-radius:3px; transition:width .5s; }
+.bar-hp { background:var(--green); } .bar-food { background:var(--yellow); }
+
+.pos-row { display:flex; gap:8px; }
+.pos-item { flex:1; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:9px 12px; }
+.pos-axis { font-size:10px; color:var(--muted); }
+.pos-val  { font-size:15px; font-weight:600; margin-top:2px; }
+
+/* ── Chat ── */
+.chat-log { height:260px; overflow-y:auto; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:10px; font-family:Consolas,monospace; font-size:12px; }
+.msg { padding:2px 0; border-bottom:1px solid #1e2030; word-break:break-word; }
+.msg .ts { color:var(--muted); margin-right:6px; font-size:10px; }
+.row { display:flex; gap:8px; }
+.row input { margin-bottom:0; }
+
+/* ── Connect panel ── */
+.connect-row { display:flex; gap:8px; margin-bottom:10px; }
+.connect-row select { flex:1; padding:9px 10px; background:var(--bg); border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:13px; }
+.connect-row select:focus { outline:none; border-color:var(--accent); }
+.connect-btns { display:flex; gap:8px; }
+
+/* ── Modules ── */
+.mod-list { display:flex; flex-direction:column; gap:8px; }
+.mod-row { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:var(--bg); border:1px solid var(--border); border-radius:8px; }
+.mod-name { font-weight:600; font-size:13px; }
+.mod-desc { font-size:11px; color:var(--muted); margin-top:2px; }
+.toggle { position:relative; width:40px; height:22px; flex-shrink:0; }
+.toggle input { opacity:0; width:0; height:0; }
+.slider { position:absolute; inset:0; cursor:pointer; background:var(--border); border-radius:22px; transition:.2s; }
+.slider:before { content:''; position:absolute; height:16px; width:16px; left:3px; bottom:3px; background:white; border-radius:50%; transition:.2s; }
+.toggle input:checked + .slider { background:var(--accent); }
+.toggle input:checked + .slider:before { transform:translateX(18px); }
+
+/* ── List ── */
+.list-items { display:flex; flex-direction:column; gap:7px; max-height:180px; overflow-y:auto; margin-bottom:10px; }
+.li { display:flex; align-items:center; justify-content:space-between; padding:8px 10px; background:var(--bg); border:1px solid var(--border); border-radius:8px; }
+.li-name { font-size:13px; font-weight:500; }
+.li-sub  { font-size:11px; color:var(--muted); margin-top:2px; }
+.add-form { display:flex; flex-direction:column; gap:6px; }
+.add-form input { margin-bottom:0; font-size:12px; padding:8px 10px; }
+
+/* ── Buttons ── */
+button { cursor:pointer; border:none; border-radius:7px; padding:9px 18px; font-size:13px; font-weight:600; transition:opacity .15s, transform .1s; }
+button:hover { opacity:.85; } button:active { transform:scale(.97); }
+.btn-p { background:var(--accent); color:#fff; }
+.btn-r { background:var(--red);    color:#fff; }
+.btn-g { background:#1a6640;       color:#fff; }
+.btn-s { padding:7px 12px; font-size:12px; }
+.btn-xs { padding:5px 9px; font-size:11px; border-radius:5px; }
+.btn-ghost { background:transparent; border:1px solid var(--border); color:var(--muted); padding:7px 14px; font-size:12px; }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <h1>🎮 ALT Manager</h1>
+    <p>Dashboard di controllo del bot</p>
+    <div class="login-error" id="login-err"></div>
+    <input type="password" id="login-pw" placeholder="Password dashboard" autocomplete="current-password">
+    <button class="btn-p" style="width:100%;padding:11px" onclick="doLogin()">Accedi</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <header>
+    <h1>🎮 ALT Manager</h1>
+    <div class="hdr-right">
+      <div class="dot" id="dot"></div>
+      <span id="conn-label">Disconnesso</span>
+      <button class="btn-ghost" onclick="doLogout()">Esci</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Colonna sinistra -->
+    <div>
+
+      <!-- Connessione bot -->
+      <div class="panel">
+        <div class="panel-title">Connessione Bot</div>
+        <div class="connect-row">
+          <select id="sel-account"><option value="">— Account —</option></select>
+          <select id="sel-server"><option value="">— Server —</option></select>
+        </div>
+        <div class="connect-btns">
+          <button class="btn-g btn-s" onclick="botConnect()">▶ Connetti</button>
+          <button class="btn-r btn-s" onclick="botDisconnect()">■ Disconnetti</button>
+        </div>
+      </div>
+
+      <!-- Stato -->
+      <div class="panel">
+        <div class="panel-title">Stato Bot</div>
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-lbl">❤️ Vita</div>
+            <div class="stat-val g" id="v-hp">—</div>
+            <div class="bar"><div class="bar-fill bar-hp" id="b-hp" style="width:0%"></div></div>
+          </div>
+          <div class="stat">
+            <div class="stat-lbl">🍗 Cibo</div>
+            <div class="stat-val y" id="v-food">—</div>
+            <div class="bar"><div class="bar-fill bar-food" id="b-food" style="width:0%"></div></div>
+          </div>
+          <div class="stat">
+            <div class="stat-lbl">📡 Ping</div>
+            <div class="stat-val b" id="v-ping">—</div>
+          </div>
+        </div>
+        <div class="pos-row">
+          <div class="pos-item"><div class="pos-axis">X</div><div class="pos-val" id="p-x">—</div></div>
+          <div class="pos-item"><div class="pos-axis">Y</div><div class="pos-val" id="p-y">—</div></div>
+          <div class="pos-item"><div class="pos-axis">Z</div><div class="pos-val" id="p-z">—</div></div>
+          <div class="pos-item"><div class="pos-axis">Dim</div><div class="pos-val" id="p-dim" style="font-size:11px">—</div></div>
+        </div>
+      </div>
+
+      <!-- Chat -->
+      <div class="panel">
+        <div class="panel-title">Chat / Comandi</div>
+        <div class="chat-log" id="chat-log"></div>
+        <div class="row">
+          <input type="text" id="chat-in" placeholder="Comando o messaggio… (invio con Enter)" maxlength="256"
+                 onkeydown="if(event.key==='Enter') sendChat()">
+          <button class="btn-p btn-s" onclick="sendChat()">Invia</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar destra -->
+    <div>
+
+      <!-- Moduli -->
+      <div class="panel">
+        <div class="panel-title">Moduli</div>
+        <div class="mod-list">
+          <div class="mod-row">
+            <div><div class="mod-name">Anti-AFK</div><div class="mod-desc">Movimenti casuali anti-kick</div></div>
+            <label class="toggle"><input type="checkbox" id="m-afk" onchange="toggleMod('afk',this.checked)"><span class="slider"></span></label>
+          </div>
+          <div class="mod-row">
+            <div><div class="mod-name">Auto Login</div><div class="mod-desc">Invia /login automatico</div></div>
+            <label class="toggle"><input type="checkbox" id="m-autoLogin" onchange="toggleMod('autoLogin',this.checked)"><span class="slider"></span></label>
+          </div>
+          <div class="mod-row">
+            <div><div class="mod-name">Auto Comandi</div><div class="mod-desc">/skyblock → /home al join</div></div>
+            <label class="toggle"><input type="checkbox" id="m-autoCommands" onchange="toggleMod('autoCommands',this.checked)"><span class="slider"></span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account -->
+      <div class="panel">
+        <div class="panel-title">Account</div>
+        <div class="list-items" id="acc-list"></div>
+        <div class="add-form">
+          <input type="text"     id="a-user" placeholder="Username">
+          <input type="password" id="a-pass" placeholder="Password MC (per Auto Login)">
+          <button class="btn-p btn-s" onclick="addAccount()">+ Aggiungi Account</button>
+        </div>
+      </div>
+
+      <!-- Server -->
+      <div class="panel">
+        <div class="panel-title">Server</div>
+        <div class="list-items" id="srv-list"></div>
+        <div class="add-form">
+          <input type="text" id="s-host"    placeholder="Host (es. mc.server.it)">
+          <input type="text" id="s-port"    placeholder="Porta" value="25565">
+          <input type="text" id="s-version" placeholder="Versione" value="1.21.4">
+          <input type="text" id="s-label"   placeholder="Nome (opzionale)">
+          <button class="btn-p btn-s" onclick="addServer()">+ Aggiungi Server</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+// ═══════════════════════════════════════════════════
+//  ALT Manager — Frontend
+// ═══════════════════════════════════════════════════
+
+let socket = null;
+let _token = localStorage.getItem('am_token') || '';
+let _accounts = [], _servers = [];
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (_token) initApp();
+  document.getElementById('login-pw').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doLogin();
+  });
+});
+
+// ── AUTH ────────────────────────────────────────────
+async function doLogin() {
+  const pw  = document.getElementById('login-pw').value;
+  const err = document.getElementById('login-err');
+  err.textContent = '';
+  try {
+    const r = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pw }),
+      credentials: 'include',
+    });
+    const d = await r.json();
+    if (!r.ok) { err.textContent = d.error || 'Errore'; return; }
+    _token = d.token;
+    localStorage.setItem('am_token', _token);
+    initApp();
+  } catch (e) { err.textContent = 'Errore di rete'; }
+}
+
+async function doLogout() {
+  await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+  localStorage.removeItem('am_token'); _token = '';
+  if (socket) socket.disconnect();
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+}
+
+// ── INIT ────────────────────────────────────────────
+function initApp() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  connectSocket();
+  loadAll();
+}
+
+function loadAll() {
+  loadModules();
+  loadAccountsAndServers();
+}
+
+// ── SOCKET ──────────────────────────────────────────
+function connectSocket() {
+  socket = io({ auth: { token: _token }, transports: ['websocket'] });
+
+  socket.on('connect_error', e => {
+    if (e.message === 'Non autenticato' || e.message === 'Token non valido') {
+      localStorage.removeItem('am_token'); location.reload();
+    }
+  });
+
+  socket.on('status',  updateStatus);
+  socket.on('chat',    appendMsg);
+  socket.on('modules', applyModules);
+  socket.on('chatlog', msgs => {
+    document.getElementById('chat-log').innerHTML = '';
+    msgs.forEach(appendMsg);
+  });
+}
+
+// ── STATUS ──────────────────────────────────────────
+function updateStatus(s) {
+  const dot   = document.getElementById('dot');
+  const label = document.getElementById('conn-label');
+
+  if (!s.connected) {
+    dot.className = 'dot' + (s.event === 'connecting' ? ' connecting' : '');
+    const labels = { connecting:'Connessione…', kicked:'Kickato', end:'Disconnesso', error:'Errore', waiting:'In attesa' };
+    label.textContent = labels[s.event] || 'Disconnesso';
+    ['v-hp','v-food','v-ping','p-x','p-y','p-z','p-dim'].forEach(id =>
+      document.getElementById(id).textContent = '—');
+    document.getElementById('b-hp').style.width   = '0%';
+    document.getElementById('b-food').style.width = '0%';
+    return;
+  }
+
+  dot.className = 'dot online';
+  label.textContent = s.username || 'Online';
+
+  document.getElementById('v-hp').textContent   = s.health + ' / 20';
+  document.getElementById('v-food').textContent = s.food   + ' / 20';
+  document.getElementById('v-ping').textContent = s.ping   + ' ms';
+  document.getElementById('b-hp').style.width   = ((s.health / 20) * 100) + '%';
+  document.getElementById('b-food').style.width = ((s.food   / 20) * 100) + '%';
+
+  if (s.position) {
+    document.getElementById('p-x').textContent   = s.position.x;
+    document.getElementById('p-y').textContent   = s.position.y;
+    document.getElementById('p-z').textContent   = s.position.z;
+    document.getElementById('p-dim').textContent = s.dimension || '—';
+  }
+}
+
+// ── CHAT ────────────────────────────────────────────
+function appendMsg(e) {
+  const log = document.getElementById('chat-log');
+  const d   = document.createElement('div');
+  d.className = 'msg';
+  const t = new Date(e.ts).toLocaleTimeString('it-IT', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  d.innerHTML = '<span class="ts">' + t + '</span><span>' + esc(e.text) + '</span>';
+  log.appendChild(d);
+  log.scrollTop = log.scrollHeight;
+}
+
+function sendChat() {
+  const el = document.getElementById('chat-in');
+  const m  = el.value.trim();
+  if (!m || !socket) return;
+  socket.emit('chat', m);
+  el.value = '';
+}
+
+// ── BOT CONNECT / DISCONNECT ─────────────────────────
+async function botConnect() {
+  const accountId = document.getElementById('sel-account').value;
+  const serverId  = document.getElementById('sel-server').value;
+  if (!accountId || !serverId) {
+    alert('Seleziona un account e un server'); return;
+  }
+  const r = await api('/api/bot/connect', 'POST', { accountId, serverId });
+  if (!r.ok) { const d = await r.json(); alert(d.error || 'Errore'); }
+}
+
+async function botDisconnect() {
+  await api('/api/bot/disconnect', 'POST');
+}
+
+// ── MODULES ─────────────────────────────────────────
+async function loadModules() {
+  const r = await api('/api/modules');
+  if (r.ok) applyModules(await r.json());
+}
+
+function applyModules(s) {
+  if (s.afk          !== undefined) document.getElementById('m-afk').checked          = !!s.afk;
+  if (s.autoLogin     !== undefined) document.getElementById('m-autoLogin').checked    = !!s.autoLogin;
+  if (s.autoCommands  !== undefined) document.getElementById('m-autoCommands').checked = !!s.autoCommands;
+}
+
+async function toggleMod(name, enabled) {
+  await api('/api/modules/' + name, 'POST', { enabled });
+}
+
+// ── ACCOUNTS & SERVERS ──────────────────────────────
+async function loadAccountsAndServers() {
+  const r = await api('/api/accounts');
+  if (!r.ok) return;
+  const d = await r.json();
+  _accounts = d.accounts || [];
+  _servers  = d.servers  || [];
+  renderAccounts();
+  renderServers();
+  refreshSelects();
+}
+
+function refreshSelects() {
+  const sa = document.getElementById('sel-account');
+  const ss = document.getElementById('sel-server');
+  sa.innerHTML = '<option value="">— Account —</option>' +
+    _accounts.map(a => '<option value="' + a.id + '">' + esc(a.username) + '</option>').join('');
+  ss.innerHTML = '<option value="">— Server —</option>' +
+    _servers.map(s => '<option value="' + s.id + '">' + esc(s.label) + '</option>').join('');
+}
+
+function renderAccounts() {
+  const el = document.getElementById('acc-list');
+  el.innerHTML = _accounts.length ? '' : '<div style="color:var(--muted);font-size:12px">Nessun account</div>';
+  _accounts.forEach(a => {
+    const d = document.createElement('div'); d.className = 'li';
+    d.innerHTML = '<div><div class="li-name">' + esc(a.username) + '</div><div class="li-sub">' + a.auth + '</div></div>' +
+      '<button class="btn-r btn-xs" onclick="delAccount(\'' + a.id + '\')">✕</button>';
+    el.appendChild(d);
+  });
+}
+
+function renderServers() {
+  const el = document.getElementById('srv-list');
+  el.innerHTML = _servers.length ? '' : '<div style="color:var(--muted);font-size:12px">Nessun server</div>';
+  _servers.forEach(s => {
+    const d = document.createElement('div'); d.className = 'li';
+    d.innerHTML = '<div><div class="li-name">' + esc(s.label) + '</div><div class="li-sub">' + esc(s.host) + ':' + s.port + ' v' + s.version + '</div></div>' +
+      '<button class="btn-r btn-xs" onclick="delServer(\'' + s.id + '\')">✕</button>';
+    el.appendChild(d);
+  });
+}
+
+async function addAccount() {
+  const user = document.getElementById('a-user').value.trim();
+  const pass = document.getElementById('a-pass').value;
+  if (!user) return;
+  const r = await api('/api/accounts', 'POST', { username: user, mcPassword: pass });
+  if (r.ok) {
+    document.getElementById('a-user').value = '';
+    document.getElementById('a-pass').value = '';
+    loadAccountsAndServers();
+  } else { const d = await r.json(); alert(d.error); }
+}
+
+async function delAccount(id) {
+  if (!confirm('Eliminare account?')) return;
+  await api('/api/accounts/' + id, 'DELETE');
+  loadAccountsAndServers();
+}
+
+async function addServer() {
+  const host    = document.getElementById('s-host').value.trim();
+  const port    = document.getElementById('s-port').value || '25565';
+  const version = document.getElementById('s-version').value || '1.21.4';
+  const label   = document.getElementById('s-label').value.trim();
+  if (!host) return;
+  const r = await api('/api/servers', 'POST', { host, port, version, label });
+  if (r.ok) {
+    document.getElementById('s-host').value  = '';
+    document.getElementById('s-label').value = '';
+    loadAccountsAndServers();
+  } else { const d = await r.json(); alert(d.error); }
+}
+
+async function delServer(id) {
+  if (!confirm('Eliminare server?')) return;
+  await api('/api/servers/' + id, 'DELETE');
+  loadAccountsAndServers();
+}
+
+// ── UTILS ────────────────────────────────────────────
+function api(url, method = 'GET', body) {
+  return fetch(url, {
+    method,
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + _token },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>

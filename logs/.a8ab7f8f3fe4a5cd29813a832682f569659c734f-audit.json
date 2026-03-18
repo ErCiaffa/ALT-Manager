@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/var/www/altmc/logs/.a8ab7f8f3fe4a5cd29813a832682f569659c734f-audit.json",
+    "files": [
+        {
+            "date": 1773691395036,
+            "name": "/var/www/altmc/logs/alt-manager-2026-03-16.log",
+            "hash": "5c8df7123368bf88cd9173b4931ad544f45685811b66571d8f21188e70ced1c3"
+        },
+        {
+            "date": 1773717187366,
+            "name": "/var/www/altmc/logs/alt-manager-2026-03-17.log",
+            "hash": "b4c80cb6677e7efa2e314a62bfdaa261c6030ac7c5df9a4539e8a8e632d1f602"
+        }
+    ],
+    "hashType": "sha256"
+}

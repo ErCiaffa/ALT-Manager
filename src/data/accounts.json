@@ -1,0 +1,20 @@
+{
+  "accounts": [
+    {
+      "id": "895d450c-0479-4e05-ae2e-e4e81c7a455e",
+      "username": "ZinghiriSlave",
+      "mcPassword": "",
+      "auth": "offline",
+      "servers": []
+    }
+  ],
+  "servers": [
+    {
+      "id": "a7e1fcec-0ad3-4ebe-961a-d79b5650563e",
+      "host": "mc.arenacraft.it",
+      "port": 25565,
+      "version": "1.21.9",
+      "label": "Arenacraft"
+    }
+  ]
+}
